@@ -16,6 +16,7 @@ Grey dark 3: #999
 
 */
 :root {
+  --color-white:#fff;
   --color-primary: #eb2f64;
   --color-primary-light: #ff3366;
   --color-primary-dark: #ba265d;
@@ -159,9 +160,43 @@ body {
     margin-right: 1rem;
     border-radius: 50%; }
 
-.side-nav__icon {
-  width: 1.75rem;
-  height: 1.75rem; }
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem; }
+  .side-nav__item {
+    position: relative; }
+    .side-nav__item:not(:last-child) {
+      margin-bottom: .5rem; }
+  .side-nav__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: scaleY(0);
+    width: 3px;
+    transition: transform 0.2s width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s background-color 0.1s;
+    background-color: var(--color-primary); }
+  .side-nav__item:active::before {
+    background-color: var(--color-primary-light); }
+  .side-nav__item:hover::before, .side-nav__item--active::before {
+    transform: scaleY(1);
+    width: 100%; }
+  .side-nav__link:link, .side-nav__link:visited {
+    color: var(--color-Grey-light-1);
+    z-index: 10;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 3rem; }
+  .side-nav__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: #fff; }
 
 .legal {
   font-size: 1.2rem;
